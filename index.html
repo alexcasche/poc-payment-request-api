@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payment Request Poc</title>
+  </head>
+  <body>
+    <div class="header">
+      <h1 class="header__text">
+        Proof of Concept: Browser Payment Request Api
+      </h1>
+    </div>
+    <div class="container">
+      <div class="card">
+        <h3 class="card__heading">
+          Shopping Cart
+        </h3>
+        <div class="card__item">
+          <img class="card__image" src="/mario-kart.jpg" />
+          <div class="card__details">
+            <h4 class="card__title">
+              Super Mario Kart
+            </h4>
+            <span class="card__price">
+              1 x $35.00
+            </span>
+          </div>
+        </div>
+        <div class="card__item">
+          <img class="card__image" src="/mario-world.jpg" />
+          <div class="card__details">
+            <h4 class="card__title">
+              Super Mario World
+            </h4>
+            <span class="card__price">
+              1 x $35.00
+            </span>
+          </div>
+        </div>
+        <div class="card__summary">
+          <div class="card__line">
+            <span class="card__label">Subtotal:</span>
+            <span class="card__value">$70.00</span>
+          </div>
+          <div class="card__line">
+            <span class="card__label">Tax:</span>
+            <span class="card__value">$1.25</span>
+          </div>
+          <div class="card__total">
+            <span class="card__label">TOTAL:</span>
+            <span class="card__value">$71.25</span>
+          </div>
+        </div>
+      </div>
+      <button class="button"
+        onclick="handleCheckout()"
+      >
+        Checkout
+      </button>
+    </div>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,104 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: Roboto Mono,monospace;
+  font-size: 62.5%;
+  margin: 0;
+}
+.header {
+  position: sticky;
+  top: 0;
+  background-color: #161512;
+  color: #fff;
+  padding: 20px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.header__text {
+  font-size: 1.6rem;
+  margin: 0;
+}
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+.card {
+  border-radius: 3em;
+  border: 1px solid #000;
+  width: 50%;
+  margin: 0 auto 30px;
+  padding: 20px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.card__heading {
+  width: 100%;
+  font-size: 1.4rem;
+  text-align: center;
+  margin: 0;
+  padding-bottom: 10px;
+  text-transform: uppercase;
+  border-bottom: 1px solid #ddd;
+}
+.card__item {
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 20px;
+  border-bottom: 1px solid #ddd;
+}
+.card__image {
+  width: 100px;
+}
+.card__details {
+  margin-left: 10px;
+}
+.card__title {
+  font-size: 1rem;
+  margin: 0 0 10px;
+}
+.card__price {
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+.card__summary {
+  width: 100%;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.card__line,
+.card__total {
+  width: 100%;
+  max-width: 200px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+.card__total {
+  margin-top: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+}
+.button {
+  width: 50%;
+  display: block;
+  margin: 0 auto;  
+  padding: 15px 10px;
+  background-color: #000;
+  border-radius: 10px;
+  border: 1px solid #000;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+}
