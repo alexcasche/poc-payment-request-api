@@ -92,7 +92,7 @@ body {
 .button {
   width: 50%;
   display: block;
-  margin: 0 auto;  
+  margin: 0 auto 20px;  
   padding: 15px 10px;
   background-color: #000;
   border-radius: 10px;

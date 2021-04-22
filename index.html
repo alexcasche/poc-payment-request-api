@@ -55,9 +55,14 @@
         </div>
       </div>
       <button class="button"
-        onclick="handleCheckout()"
+        onclick="handleDefaultCheckout()"
       >
-        Checkout
+        Default Checkout
+      </button>
+      <button class="button"
+        onclick="handleStripeCheckout()"
+      >
+        Stripe Checkout
       </button>
     </div>
     <script type="module" src="/main.js"></script>
