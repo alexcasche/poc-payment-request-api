@@ -1,7 +1,7 @@
 import {loadStripe} from '@stripe/stripe-js'
 // import stripe from 'stripe'
 
-const stripeClient = await loadStripe(import.meta.env.VITE_STRIPE_API_KEY)
+const stripeClient = loadStripe(import.meta.env.VITE_STRIPE_API_KEY)
 // const stripeServer = stripe(import.meta.env.VITE_STRIPE_API_SECRET)
 
 const paymentData = {
