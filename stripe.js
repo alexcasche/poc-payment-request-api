@@ -1,8 +1,5 @@
 import {loadStripe} from '@stripe/stripe-js'
-import fetch from 'isomorphic-fetch'
-
-
-const stripeClient = loadStripe(import.meta.env.VITE_STRIPE_API_KEY)
+import axios from 'axios'
 
 const paymentData = {
   country: 'US',
@@ -20,29 +17,42 @@ const paymentData = {
 }
 
 export default async function handleStripeCheckout() {
-  const response = await fetch('/api/stripe', { 
-    method: 'POST',
-    body: JSON.stringify({ test: 'test' })
-  })
+  try {
+    const stripeClient = await loadStripe(import.meta.env.VITE_STRIPE_API_KEY)
+    
+    const paymentRequest = stripeClient.paymentRequest(paymentData)
+    const available = await paymentRequest.canMakePayment()
+    
+    if(available) {
+      await paymentRequest.show()
 
+      paymentRequest.on('cancel', () => console.warn('Cancelled Payment Request'))
 
-  // const paymentRequest = stripeClient.paymentRequest(paymentData);
-  // const available = await paymentRequest.canMakePayment()
-  // if(available) {
-  //   await paymentRequest.show()
-  //   
-  //   paymentRequest.on('cancel', () => console.warn('Cancelled Payment Request'))
-  //   paymentRequest.on('paymentmethod', async ({ paymentMethod, complete }) => {
-  //     const { paymentIntent, error: confirmError } = await stripeClient.confirmCardPayment(
-  //       clientSecret,
-  //       { payment_method: paymentMethod.id },
-  //       { handleActions: false }
-  //     )
-  //     if (confirmError) complete('fail')
-  //     else complete('success')
-  //   })
-  // }
-  // else {
-  //   alert('Browser Payment Request Not Supported')
-  // }
+      paymentRequest.on('paymentmethod', async ({ paymentMethod, complete }) => {
+
+          const paymentResponse = await axios.post('/api/stripe', paymentData)
+          const { clientSecret } = paymentResponse.data
+          
+          const { paymentIntent, error: confirmError } = await stripeClient.confirmCardPayment(
+            clientSecret,
+            { payment_method: paymentMethod.id },
+          )
+
+          if (confirmError) {
+            complete('fail')
+            alert('The payment failed.')
+          }
+          else {
+            complete('success')
+            alert('The payment succeeded.')
+          }
+      })
+    }
+    else {
+      alert('Browser Payment Request Not Supported')
+    }
+  }
+  catch {
+    alert('Something bad happened.')
+  }
 }
