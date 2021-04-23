@@ -40,11 +40,11 @@ export default async function handleStripeCheckout() {
 
           if (confirmError) {
             complete('fail')
-            alert('The payment failed.')
+            console.log('payment failed')       
           }
           else {
             complete('success')
-            alert('The payment succeeded.')
+            console.log('payment succeeded')
           }
       })
     }
