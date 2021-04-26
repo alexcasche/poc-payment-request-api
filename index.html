@@ -12,7 +12,7 @@
         Proof of Concept: Browser Payment Request Api
       </h1>
     </div>
-    <div class="container">
+    <div class="container" id="cart">
       <div class="card">
         <h3 class="card__heading">
           Shopping Cart
@@ -41,11 +41,11 @@
         </div>
         <div class="card__summary">
           <div class="card__line">
-            <span class="card__label">Subtotal:</span>
+            <span class="card__label">Subtotal: </span>
             <span class="card__value">$70.00</span>
           </div>
           <div class="card__line">
-            <span class="card__label">Tax:</span>
+            <span class="card__label">Tax: </span>
             <span class="card__value">$1.25</span>
           </div>
           <div class="card__total">
@@ -54,16 +54,37 @@
           </div>
         </div>
       </div>
-      <button class="button"
+      <!-- <button class="button"
         onclick="handleDefaultCheckout()"
       >
         Default Checkout
-      </button>
+      </button> -->
       <button class="button"
         onclick="handleStripeCheckout()"
       >
-        Stripe Checkout
+        Checkout w/ Stripe
       </button>
+    </div>
+    <div class="container" id="confirm" style="display: none;">
+      <div class="card">
+        <h3 class="card__heading">
+          Order Confirmation
+        </h3>
+        <div class="card__summary">
+          <div class="card__line">
+            <span class="card__label">Id:</span>
+            <span class="card__value" id="cardId"></span>
+          </div>
+          <div class="card__line">
+            <span class="card__label">Mode:</span>
+            <span class="card__value" id="cardMode"></span>
+          </div>
+          <div class="card__line">
+            <span class="card__label">Amount:</span>
+            <span class="card__value" id="cardAmount"></span>
+          </div>
+        </div>
+      </div>
     </div>
     <script type="module" src="/main.js"></script>
   </body>

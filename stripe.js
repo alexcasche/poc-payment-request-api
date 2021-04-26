@@ -40,19 +40,28 @@ export default async function handleStripeCheckout() {
 
           if (confirmError) {
             complete('fail')
-            console.log('payment failed')       
+            console.log('Payment failed')       
           }
           else {
             complete('success')
-            console.log('payment succeeded')
+            const cartEl = document.getElementById('cart')
+            const confirmEl = document.getElementById('confirm')
+            const idEl = document.getElementById('cardId')
+            const modeEl = document.getElementById('cardMode')
+            const amountEl = document.getElementById('cardAmount')
+            idEl.innerHTML = paymentIntent.id
+            modeEl.innerHTML = paymentIntent.livemode ? 'Live' : 'Test'
+            amountEl.innerHTML = `$${(paymentIntent.amount / 100).toFixed(2)}`
+            cartEl.style.display = 'none'
+            confirmEl.style.display = 'block'
           }
       })
     }
     else {
-      alert('Browser Payment Request Not Supported')
+      console.log('Payment error')
     }
   }
   catch {
-    alert('Something bad happened.')
+    console.log('Payment response')
   }
 }

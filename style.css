@@ -102,3 +102,7 @@ body {
   font-size: 1rem;
   font-weight: 600;
 }
+#confirm .card__line {
+  max-width: 100%;
+  justify-content: center;
+}

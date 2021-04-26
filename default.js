@@ -27,7 +27,7 @@ export default async function handleDefaultCheckout() {
       const paymentResponse = await paymentRequest.show()
         .catch(() => console.warn('Cancelled Payment Request'))
       if(paymentResponse) {
-        paymentResponse.complete()
+        paymentResponse.complete().then(() => alert('hey now'))
       }
     }
     else {
