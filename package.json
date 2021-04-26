@@ -1,6 +1,7 @@
 {
   "name": "poc-payments",
   "version": "0.0.0",
+  "description": "A proof-of-concept webpage that demonstrates use of browser payment request API with Stripe",
   "scripts": {
     "dev": "vite --port $PORT",
     "build": "vite build",
